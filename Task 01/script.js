@@ -1,57 +1,47 @@
 'use strict';
 
-let money = prompt('Ваш бюджет на месяц?', '0');
-let time  = prompt('Введите дату в формате YYYY-MM-DD', '');
+let money = +prompt('Ваш бюджет на месяц?', '0');
+let time = prompt('Введите дату в формате YYYY-MM-DD', '');
 
 let appData = {
-    budget : money,
+    budget: money,
     timeData: time,
     expenses: {},
     income: [],
     savings: false
 };
 
-let a1 = prompt('Введите обязательную статью расходов в этом месяце', ''),
-    a2 = +prompt('Во сколько обойдется?'),
-    a3 = prompt('Введите обязательную статью расходов в этом месяце', ''),
-    a4 = +prompt('Во сколько обойдется?');
-appData.expenses[a1] = a2;
-appData.expenses[a3] = a4;
 
-alert('Ваш бюджет в день: ' + appData.budget/30);
+// for (let i = 0; i < 2; i++) {
+//     let a = prompt('Введите обязательную статью расходов в этом месяце', ''),
+//         b = +prompt('Во сколько обойдется?');
 
+//     if (typeof (a) === 'string' && typeof (b) != null && typeof (a) != null &&
+//         a != '' && b != '' && a.length < 50) {
 
-// console.log(4 / 0);
-// console.log('string' * 9);
-
-
-// let person = {
-//     name: "John",
-//     age: 25,
-//     isMarried: false
+//         console.log('done');
+//         appData.expenses[a] = b;
+//     } else {
+//         i--;
+//     }
 // };
-// person.name = 'Alex';
-// console.log(person.name);
 
-// let arr =['plum.png', 'orange.jpg', 'apple.bmp'];
+appData.moneyPerDay = appData.budget / 30;
+alert('Ваш бюджет в день: ' + appData.moneyPerDay);
 
-// console.log(arr[0]);
+switch (true) {
+    case appData.moneyPerDay < 100:
+        console.log('Минимальный уровень достатка');
+        break;
+    case appData.moneyPerDay > 100 && appData.moneyPerDay < 2000:
+        console.log('Средний уровень достатка');
+        break;
+    case appData.moneyPerDay > 2000:
+        console.log('Высокий уровень достатка');
+        break;
+    default: 
+        console.log('Ошибка');
+        break;
+}
 
-// //alert('Hello!');
-// // let answer = confirm('Are you here?');
-// // console.log(answer);
-// let answer = +prompt('18 есть?', 'Да');
-// console.log(answer);
-let incr = 10,
-    decr = 10;
-
-
-console.log(++incr);
-console.log(decr--);
-console.log(5%1);
-console.log('2' || 2);
-
-let isChecked = true,
-    isClose = false;
-
-console.log(isChecked || isClose);
+console.log(appData.moneyPerDay);

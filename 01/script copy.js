@@ -1,15 +1,10 @@
 'use strict';
 
-// if (2 * 4 == 7) {
-//     console.log('true');
-// } else {
-//     console.log('false');
-// }
 
-let num = 50;
+let num = 40;
 // (num == 50) ? console.log('true'): console.log('false');
 
-switch (num) {
+switch (true) {
     case num < 49:
         console.log('false');
         break;
